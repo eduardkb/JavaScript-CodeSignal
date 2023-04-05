@@ -25,11 +25,11 @@ function solution(n) {
     aCountElem.forEach(e => e % 2 == 1 ? countOdd++ : null)
 
     if (n.length % 2 == 1) {
-        // even number of elements
+        // odd number of elements
         return (countOdd == 1) ? true : false;
     }
     else {
-        // odd even number of elements
+        // even number of elements
         return (countOdd == 0) ? true : false;
     }
 }
