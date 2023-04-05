@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\14-Alternating Sums.js"
+            "program": "${workspaceFolder}\\19-Are Equally Strong.js"
         }
     ]
 }

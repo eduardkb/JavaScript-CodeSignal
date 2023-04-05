@@ -13,16 +13,28 @@
 //                      "*****"]
 
 // Parameters
-const param = 0
+const param = ["abcds",
+    "dedrr"]
 
 // My Solution
-function solution(n) {
-    return 1;
+function solution(picture) {
+    picture = picture.map((e) => {
+        return `*${e}*`
+    })
+    let sTmp = ''.padStart(picture[0].length, '*')
+    picture.unshift(sTmp)
+    picture.push(sTmp)
+    return picture;
 }
 
 // Best solution:
 function bestSolution(n) {
-    return 1;
+    var width = picture[0].length + 2;
+    return [
+        '*'.repeat(width),
+        ...picture.map(line => `*${line}*`),
+        '*'.repeat(width)
+    ];
 }
 
 // console log
