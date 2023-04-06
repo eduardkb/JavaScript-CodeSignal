@@ -23,12 +23,16 @@ const p4 = 10
 
 // My Solution
 function solution(yourLeft, yourRight, friendsLeft, friendsRight) {
-    return 1
+    if ((yourLeft == friendsLeft && yourRight == friendsRight) ||
+        (yourLeft == friendsRight && yourRight == friendsLeft)) {
+        return true;
+    }
+    return false;
 }
 
 // Best solution:
 function bestSolution(yourLeft, yourRight, friendsLeft, friendsRight) {
-    return 1;
+    return yourLeft + yourRight === friendsLeft + friendsRight && (yourLeft === friendsLeft || yourLeft === friendsRight);
 }
 
 // console log

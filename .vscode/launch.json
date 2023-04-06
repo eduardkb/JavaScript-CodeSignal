@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\19-Are Equally Strong.js"
+            "program": "${workspaceFolder}\\20-Array Maximal Adjacent Difference.js"
         }
     ]
 }
