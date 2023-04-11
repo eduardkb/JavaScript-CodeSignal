@@ -15,16 +15,29 @@
 // There is no first number.
 
 // Parameters
-const param = 0
+const param = "22.254.3.2"
 
-// My Solution
+// My Solution 
 function solution(inputString) {
-    return 1;
+    aArr = inputString.split('.')
+    if (aArr.length == 4) {
+        for (let i = 0; i < aArr.length; i++) {
+            const iTmp = Number(aArr[i])
+            if (iTmp < 0 || iTmp > 255 || isNaN(iTmp)) {
+                return false;
+            }
+            if ((aArr[i][0] == '0' && aArr[i].length >= 2) || (aArr[i] == '')) {
+                return false
+            }
+        }
+        return true;
+    }
+    return false;
 }
 
 // Best solution:
 function bestSolution(inputString) {
-    return 1;
+    return /^((25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)(\.(?!$)|$)){4}$/.test(inputString);
 }
 
 // console log

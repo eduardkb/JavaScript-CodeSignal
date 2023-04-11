@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\20-Array Maximal Adjacent Difference.js"
+            "program": "${workspaceFolder}\\23-Box blur.js"
         }
     ]
 }
