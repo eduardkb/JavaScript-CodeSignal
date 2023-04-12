@@ -12,17 +12,18 @@
 
 
 // Parameters
-const p1 = 10
-const p2 = 2
+const p1 = 18
+const p2 = 6
 
 // My Solution
 function solution(n, firstNumber) {
-    return 1;
+    iNum = (n / 2) + firstNumber
+    return (iNum >= n) ? iNum - n : iNum;
 }
 
 // Best solution:
 function bestSolution(n, firstNumber) {
-    return 1;
+    return (n / 2 + firstNumber) % n
 }
 
 // console log
