@@ -14,16 +14,41 @@
 // Check out the image below for better understanding:
 
 // Parameters
-const param = 0
+const param = [[true, false, false],
+[false, true, false],
+[false, false, false]]
 
 // My Solution
 function solution(matrix) {
-    return 1;
+    aRes = matrix.map((e1, i) => {
+        return (e1.map((e2, j) => {
+            let iCnt = 0
+            for (let w = i - 1; w <= i + 1; w++) {
+                for (let x = j - 1; x <= j + 1; x++) {
+                    if (matrix[w] !== undefined) {
+                        (matrix[w][x] && (!(i == w && j == x))) ? iCnt++ : null
+                    }
+                }
+            }
+            return (iCnt)
+
+        }))
+    })
+    return aRes
 }
 
 // Best solution:
 function bestSolution(matrix) {
-    return 1;
+    var dirs = [{ r: -1, c: -1 },
+    { r: -1, c: 0 },
+    { r: -1, c: 1 },
+    { r: 0, c: 1 },
+    { r: 0, c: -1 },
+    { r: 1, c: -1 },
+    { r: 1, c: 0 },
+    { r: 1, c: 1 }];
+
+    return matrix.map((a, r) => a.map((_, c) => dirs.reduce((p, v) => p += (matrix[r + v.r] || [])[c + v.c] | 0, 0)))
 }
 
 // console log
