@@ -18,16 +18,31 @@
 // Because there is a tie, the smallest x between x = 2 and x = 3 is the answer.
 
 // Parameters
-const param = [2, 4, 7]
+let param = [2, 4, 7, 10, 33, 34, 35, 36, 37, 38, 39]
 
 // My Solution
 function solution(a) {
-    return 1;
+    aRes = []
+    aRes = a.map((eMap) => {
+        console.log("------------------------------------")
+        return a.reduce((acc, eRed, i) => {
+            console.log(`${i} - ${acc} | ${eMap} | ${eRed}`)
+            return acc + Math.abs(eRed - eMap)
+        }, 0)
+        // let iCnt = 0
+        // for (let i = 0; i < a.length; i++) {
+        //     iCnt += Math.abs(a[i] - e)
+        // }
+        // return iCnt
+    })
+    console.log(aRes)
+    return a[aRes.indexOf(Math.min(...aRes))]
 }
 
 // Best solution:
 function bestSolution(a) {
-    return 1;
+    let distances = a.map(e => a.reduce((acc, cur) => acc + Math.abs(cur - e), 0));
+    return a[distances.indexOf(Math.min(...distances))];
 }
 
 // console log

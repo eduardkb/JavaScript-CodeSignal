@@ -33,14 +33,7 @@ function fArrOthers() {
 
     console.log("Original array: ", a)
 
-    console.log("".padEnd(30, "="))
-    let sum = a.reduce((iCnt, e) => iCnt + e, 0);
-    console.log("Reduce function to add array: ", sum)
-
-    console.log("".padEnd(30, "="))
-    let bHasOnlyEvenNum = a.every((e) => e % 2 == 0)
-    console.log("Even function to chek: array has only even numbers: ", bHasOnlyEvenNum)
-
+    // MAP, SORT AND FILTER
     console.log("".padEnd(30, "="))
     let sorted = a.sort((a, b) => a - b)
     console.log("Sort function: ", sorted)
@@ -59,6 +52,30 @@ function fArrOthers() {
     });
     console.log("Map function 2: ", mapped2)
 
+    //REDUCE SIMPLE
+    console.log("".padEnd(30, "="))
+    let sum = a.reduce((iCnt, e) => iCnt + e);
+    console.log("Reduce function to add array: ", sum)
+
+    //REDUCE COMPLEX
+    console.log("".padEnd(30, "="))
+    const param = [2, 4, 7, 10, 33, 34, 35, 36, 37, 38, 39]
+    // the 0 passed as argument in th end of reduce funtion makes reduce
+    // start with that value
+    // simplified:
+    let aRes = param.reduce((acc, cur) => acc + Math.abs(cur - 2), 0);
+    console.log("Res COMPLEX reduce 1: ", aRes)
+    // explained
+    aRes = a.reduce((acc, eRed, i) => {
+        console.log(`${i} - ${acc} | ${2} | ${eRed}`)
+        return acc + Math.abs(eRed - 2)
+    }, 0)
+    console.log("Res COMPLEX reduce 2: ", aRes)
+
+    //EVERY
+    console.log("".padEnd(30, "="))
+    let bHasOnlyEvenNum = a.every((e) => e % 2 == 0)
+    console.log("Even function to chek: array has only even numbers: ", bHasOnlyEvenNum)
 }
 
 // string functions
@@ -76,4 +93,59 @@ function fStrManip() {
     console.log("get substring: ", sSub)
 }
 
-fArrOthers()
+function fCalcArranjoECombinacao() {
+    // arranjo a ordem importa. 
+    //      Ex: [1,2,3,4] = [[1,2], [2,1], [2,3], [3,2], ...] (1 e 2 é diferente de 2 e 1)
+    //      Formula A(n,p)= (n!)/((n-p)!)
+    // combinação a ordem nao importa  
+    //      Ex: [1,2,3,4] = [[1,2], [2,3], ...] (1 e 2 é a mesma coisa que 2 e 1)
+    //      Formula C(n,p)= (n!)/(P!.(n-p)!)
+    function fArranjo(aItems, num) {
+        // calculando quantos arranjos possiveis
+        const iNum = fatorial(aItems.length) / fatorial((aItems.length - num))
+        console.log(`Arranjo: ${aItems.length} items arranjados de ${num} em ${num} tem: '${iNum}' arranjos`)
+
+        // identificando todos os arranjos
+
+        return "------"
+    }
+    function fCombinacao(aItems, num) {
+        // calculando quantas combinações possiveis
+        const iNum = fatorial(aItems.length) / (fatorial(num) * fatorial((aItems.length - num)))
+        console.log(`Combinação: ${aItems.length} items combinados de ${num} em ${num} tem: '${iNum}' arranjos`)
+        return "------"
+
+        // identificando todas as combinações
+    }
+    function fatorial(valor) {
+        // para valores negativos
+        if (valor < 0) {
+
+            return 0;
+
+            // para valor = 0  ou igual a 1
+        } else if ((valor == 0) || (valor == 1)) {
+
+            return 1;
+
+        } else {
+
+            var acumula = 1;
+            for (x = valor; x > 1; x--) {
+                acumula = acumula * x;
+            }
+            return acumula;
+        }
+
+    }
+
+    arr = [1, 2, 3, 4]
+    p = 2
+    console.log("".padEnd(30, '=='))
+    console.log("Arranjos    : ", fArranjo(arr, p))
+    console.log("".padEnd(30, '*'))
+    console.log("Combinações : ", fCombinacao(arr, p))
+    console.log("".padEnd(30, '=='))
+}
+
+fCalcArranjoECombinacao()
