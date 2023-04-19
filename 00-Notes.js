@@ -205,8 +205,10 @@ function fTest() {
     }
     console.log("".padEnd(30, "="))
     console.time('t1');
-    const aRes = permutator(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'])
+    // const aRes = permutator(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'])
+    const aRes = permutator(['a', 'b'])
     console.log("Res n# of elements: ", aRes.length)
+    console.log("Elements: ", aRes)
     console.timeEnd('t1');
     console.log("".padEnd(30, "="))
 }

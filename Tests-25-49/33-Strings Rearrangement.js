@@ -26,12 +26,41 @@
 // inputArray: ["abc", "bef", "bcc", "bec", "bbc", "bdc"] = true
 
 // Parameters
-const param = [1, 2, 3, 4]
+let param = [1, 2, 3, 4]
+param = ['a', 'b', 'c', 'd']
 
 // My Solution
 function solution(inputArray) {
-    const arranjos = []
+    let arranjos = []
+    arranjos.push()
+    let iCnt = 1
 
+    if (inputArray.length > 0) {
+        arranjos.push([inputArray[0]])
+    }
+    else {
+        return null
+    }
+
+    // find all combinatins possible    
+    for (let i = 1; i < inputArray.length; i++) {
+        aCurr = arranjos.slice()
+        arranjos = []
+        aCurr.forEach((e) => {
+            for (let j = 0; j < e.length + 1; j++) {
+                aTmp = e.slice()
+                aTmp.splice(j, 0, inputArray[i])
+                arranjos.push(aTmp)
+                if (aTmp.length === inputArray.length) {
+                    // for each combination found test condition
+                    // right when combination is found
+                    console.log(`Item #${iCnt}: `, aTmp)
+                    iCnt++
+                }
+
+            }
+        })
+    }
     return 1;
 }
 
