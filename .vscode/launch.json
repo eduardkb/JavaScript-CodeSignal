@@ -11,7 +11,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Tests-25-49\\26-Even Digits Only.js"
+            //"program": "${workspaceFolder}\\Tests-25-49\\26-Even Digits Only.js"
+            "program": "${workspaceFolder}\\00-Notes.js"
         }
     ]
 }

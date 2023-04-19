@@ -1,3 +1,4 @@
+/////////////////////////////////////////////////
 // Arrays inserting and removing elements
 function fArrManip() {
     let a = [3, 6, 8, 11, 15, 23]
@@ -26,6 +27,7 @@ function fArrManip() {
     console.log(a)
 };
 
+/////////////////////////////////////////////////
 // arr functions
 function fArrOthers() {
     let a = [6, 3, 23, 12, 15, 8, 11, 86, 7]
@@ -78,6 +80,7 @@ function fArrOthers() {
     console.log("Even function to chek: array has only even numbers: ", bHasOnlyEvenNum)
 }
 
+/////////////////////////////////////////////////
 // string functions
 function fStrManip() {
     sText = "The brown fox jumped over the dog."
@@ -93,6 +96,36 @@ function fStrManip() {
     console.log("get substring: ", sSub)
 }
 
+/////////////////////////////////////////////////
+// recursividade (3 exemplos)
+function sum(num) {
+    if (num === 0) {
+        return 0;
+    }
+    return num + sum(num - 1)
+}
+function factorial(number) {
+    if (number === 1) {
+        return 1;
+    }
+    return number * factorial(number - 1);
+}
+function fibonatti(number) {
+    function calc(number) {
+        if (number <= 1) {
+            return number;
+        }
+        return calc(number - 1) + calc(number - 2);
+    }
+    let string = '';
+    for (let i = 1; i <= number; i++) {
+        string += `${calc(i)} `;
+    }
+    console.log(`- ${number} Fib elements: ${string}`);
+}
+
+/////////////////////////////////////////////////
+// arranjo + combinação
 function fCalcArranjoECombinacao() {
     // arranjo a ordem importa. 
     //      Ex: [1,2,3,4] = [[1,2], [2,1], [2,3], [3,2], ...] (1 e 2 é diferente de 2 e 1)
@@ -113,9 +146,10 @@ function fCalcArranjoECombinacao() {
         // calculando quantas combinações possiveis
         const iNum = fatorial(aItems.length) / (fatorial(num) * fatorial((aItems.length - num)))
         console.log(`Combinação: ${aItems.length} items combinados de ${num} em ${num} tem: '${iNum}' arranjos`)
-        return "------"
 
         // identificando todas as combinações
+
+        return "------"
     }
     function fatorial(valor) {
         // para valores negativos
@@ -139,8 +173,8 @@ function fCalcArranjoECombinacao() {
 
     }
 
-    arr = [1, 2, 3, 4]
-    p = 2
+    arr = [1, 2, 3]
+    p = 3
     console.log("".padEnd(30, '=='))
     console.log("Arranjos    : ", fArranjo(arr, p))
     console.log("".padEnd(30, '*'))
@@ -148,4 +182,32 @@ function fCalcArranjoECombinacao() {
     console.log("".padEnd(30, '=='))
 }
 
-fCalcArranjoECombinacao()
+function fTest() {
+    function permutator(inputArr) {
+        var results = [];
+
+        function permute(arr, memo) {
+            var cur, memo = memo || [];
+
+            for (var i = 0; i < arr.length; i++) {
+                cur = arr.splice(i, 1);
+                if (arr.length === 0) {
+                    results.push(memo.concat(cur));
+                }
+                permute(arr.slice(), memo.concat(cur));
+                arr.splice(i, 0, cur[0]);
+            }
+
+            return results;
+        }
+
+        return permute(inputArr);
+    }
+    console.log("".padEnd(30, "="))
+    console.time('t1');
+    const aRes = permutator(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'])
+    console.log("Res n# of elements: ", aRes.length)
+    console.timeEnd('t1');
+    console.log("".padEnd(30, "="))
+}
+fTest()
