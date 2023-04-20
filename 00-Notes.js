@@ -28,7 +28,7 @@ function fArrManip() {
 };
 
 /////////////////////////////////////////////////
-// arr functions
+// array functions
 function fArrOthers() {
     let a = [6, 3, 23, 12, 15, 8, 11, 86, 7]
     let a2 = [6, 24, 12, 8, 18, 86, 2]
@@ -139,8 +139,21 @@ function fCalcArranjoECombinacao() {
         console.log(`Arranjo: ${aItems.length} items arranjados de ${num} em ${num} tem: '${iNum}' arranjos`)
 
         // identificando todos os arranjos
-
-        return "------"
+        let arranjos = []
+        arranjos.push([aItems[0]])
+        // find all combinatins possible    
+        for (let i = 1; i < aItems.length; i++) {
+            aCurr = arranjos.slice()
+            arranjos = []
+            aCurr.forEach((e) => {
+                for (let j = 0; j < e.length + 1; j++) {
+                    aTmp = e.slice()
+                    aTmp.splice(j, 0, aItems[i])
+                    arranjos.push(aTmp)
+                }
+            })
+        }
+        return arranjos;
     }
     function fCombinacao(aItems, num) {
         // calculando quantas combinações possiveis
@@ -172,8 +185,37 @@ function fCalcArranjoECombinacao() {
         }
 
     }
+    function fArranjoComRecursividade() {
+        function permutator(inputArr) {
+            var results = [];
 
-    arr = [1, 2, 3]
+            function permute(arr, memo) {
+                var cur, memo = memo || [];
+
+                for (var i = 0; i < arr.length; i++) {
+                    cur = arr.splice(i, 1);
+                    if (arr.length === 0) {
+                        results.push(memo.concat(cur));
+                    }
+                    permute(arr.slice(), memo.concat(cur));
+                    arr.splice(i, 0, cur[0]);
+                }
+
+                return results;
+            }
+
+            return permute(inputArr);
+        }
+        console.log("".padEnd(30, "="))
+        console.time('t1');
+        // const aRes = permutator(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'])
+        const aRes = permutator(['a', 'b'])
+        console.log("Res n# of elements: ", aRes.length)
+        console.log("Elements: ", aRes)
+        console.timeEnd('t1');
+        console.log("".padEnd(30, "="))
+    }
+    arr = ['a', 'b', 'c', 'd']
     p = 3
     console.log("".padEnd(30, '=='))
     console.log("Arranjos    : ", fArranjo(arr, p))
@@ -181,35 +223,4 @@ function fCalcArranjoECombinacao() {
     console.log("Combinações : ", fCombinacao(arr, p))
     console.log("".padEnd(30, '=='))
 }
-
-function fTest() {
-    function permutator(inputArr) {
-        var results = [];
-
-        function permute(arr, memo) {
-            var cur, memo = memo || [];
-
-            for (var i = 0; i < arr.length; i++) {
-                cur = arr.splice(i, 1);
-                if (arr.length === 0) {
-                    results.push(memo.concat(cur));
-                }
-                permute(arr.slice(), memo.concat(cur));
-                arr.splice(i, 0, cur[0]);
-            }
-
-            return results;
-        }
-
-        return permute(inputArr);
-    }
-    console.log("".padEnd(30, "="))
-    console.time('t1');
-    // const aRes = permutator(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'])
-    const aRes = permutator(['a', 'b'])
-    console.log("Res n# of elements: ", aRes.length)
-    console.log("Elements: ", aRes)
-    console.timeEnd('t1');
-    console.log("".padEnd(30, "="))
-}
-fTest()
+fCalcArranjoECombinacao()
