@@ -5,18 +5,19 @@
 // solution(inputArray, k) = [1, 2, 4, 5, 7, 8, 10].
 
 // Parameters
-const param = 0
+const p1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+const p2 = 3
 
 // My Solution
 function solution(inputArray, k) {
-    return 1;
+    return inputArray.filter((e, i) => (i + 1) % k != 0)
 }
 
 // Best solution:
 function bestSolution(inputArray, k) {
-    return 1;
+    return inputArray.filter((x, i) => (i + 1) % k)
 }
 
 // console log
-console.log("My Solution: ", solution(param))
-console.log("Best Solution: ", bestSolution(param))
+console.log("My Solution: ", solution(p1, p2))
+console.log("Best Solution: ", bestSolution(p1, p2))
