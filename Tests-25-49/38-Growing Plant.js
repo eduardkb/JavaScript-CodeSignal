@@ -30,12 +30,18 @@ const p3 = 910
 
 // My Solution
 function solution(upSpeed, downSpeed, desiredHeight) {
-    return 1;
+    let day = 1;
+    let growth = upSpeed;
+    while (growth < desiredHeight) {
+        growth += upSpeed - downSpeed
+        day++
+    }
+    return day;
 }
 
 // Best solution:
 function bestSolution(upSpeed, downSpeed, desiredHeight) {
-    return 1;
+    return upSpeed > desiredHeight ? 1 : Math.ceil((desiredHeight - upSpeed) / (upSpeed - downSpeed)) + 1;
 }
 
 // console log
