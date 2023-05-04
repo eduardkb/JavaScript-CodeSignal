@@ -15,16 +15,27 @@
 // 9 + 1 = 10 -> 1 + 0 = 1.
 
 // Parameters
-const param = 0
+const param = 88
 
 // My Solution
 function solution(n) {
-    return 1;
+    let i = 0;
+    while (n.toString().split('').length > 1) {
+        arr = n.toString().split('').map((i) => parseInt(i))
+        n = arr.reduce((s, v) => s += v, 0)
+        i++
+    }
+    return i;
 }
 
 // Best solution:
 function bestSolution(n) {
-    return 1;
+    c = 0
+    while (n.toString().length > 1) {
+        n = n.toString().split("").reduce((x, y) => Number(x) + Number(y))
+        c++
+    }
+    return c
 }
 
 // console log
