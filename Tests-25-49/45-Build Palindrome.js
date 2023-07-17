@@ -6,6 +6,9 @@
 // Example
 // For st = "abcdc", the output should be
 // solution(st) = "abcdcba".
+// st: "abaa"      Res: "abaaba"
+// st: "aaaaba"    Res: "aaaabaaaa"
+// st: "abc"       Res: "abcba"
 
 // Parameters
 const param = "abcdc"
