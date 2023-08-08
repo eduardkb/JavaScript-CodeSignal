@@ -11,11 +11,27 @@
 // st: "abc"       Res: "abcba"
 
 // Parameters
-const param = "abcdc"
+const param = "abcdedcb"
 
 // My Solution
 function solution(st) {
-    return 1;
+    if (st == st.split('').reverse().join('')) {
+        return st;
+    }
+    else {
+        bPal = true
+        iStart = 0
+        while (bPal) {
+            iStart += 1
+            sTmp = st.substr(iStart, st.length - iStart)
+            console.log(`Stmp = ${sTmp}`)
+            if (iStart == st.length - 1) {
+                bPal = false
+            }
+        }
+        return 1;
+    }
+
 }
 
 // Best solution:
