@@ -32,18 +32,29 @@ function fArrManip() {
 function fArrOthers() {
     let a = [6, 3, 23, 12, 15, 8, 11, 86, 7]
     let a2 = [6, 24, 12, 8, 18, 86, 2]
+    let aStr = ["Charlie", "bob", "4z89hi","Ulrique", "adam", "Yolanda", "dante", "2xy3zac", "Mary", "otavio"]
 
     console.log("Original array: ", a)
 
-    // MAP, SORT AND FILTER
+    // SORT INTEGERS
     console.log("".padEnd(30, "="))
     let sorted = a.sort((a, b) => a - b)
-    console.log("Sort function: ", sorted)
+    console.log("Sort function with INTEGERS: ", sorted)
 
+    // SORT STRINGS
+    
+    // locale sort (normal sort)
+    console.log("Sort String LOCALE:", aStr.sort((a,b) => a.localeCompare(b)))
+
+    // sort ASCII (upper case before lower case)
+    console.log("Sort String ASCII:", aStr.sort((a,b) => a > b ? 1 : b > a ? -1 : 0))
+
+    // FILTER
     console.log("".padEnd(30, "="))
     let filtered = a.filter((a) => a > 20)
     console.log("Filter function: ", filtered)
 
+    // MAP
     console.log("".padEnd(30, "="))
     let mapped = a.map((a) => a * 2);
     console.log("Map function: ", mapped)
@@ -54,12 +65,12 @@ function fArrOthers() {
     });
     console.log("Map function 2: ", mapped2)
 
-    //REDUCE SIMPLE
+    // REDUCE SIMPLE
     console.log("".padEnd(30, "="))
     let sum = a.reduce((iCnt, e) => iCnt + e);
     console.log("Reduce function to add array: ", sum)
 
-    //REDUCE COMPLEX
+    // REDUCE COMPLEX
     console.log("".padEnd(30, "="))
     const param = [2, 4, 7, 10, 33, 34, 35, 36, 37, 38, 39]
     // the 0 passed as argument in th end of reduce funtion makes reduce
@@ -74,11 +85,12 @@ function fArrOthers() {
     }, 0)
     console.log("Res COMPLEX reduce 2: ", aRes)
 
-    //EVERY
+    // EVERY
     console.log("".padEnd(30, "="))
     let bHasOnlyEvenNum = a.every((e) => e % 2 == 0)
     console.log("Even function to chek: array has only even numbers: ", bHasOnlyEvenNum)
 }
+fArrOthers();
 
 /////////////////////////////////////////////////
 // string functions
@@ -223,4 +235,3 @@ function fCalcArranjoECombinacao() {
     console.log("Combinações : ", fCombinacao(arr, p))
     console.log("".padEnd(30, '=='))
 }
-fCalcArranjoECombinacao()
