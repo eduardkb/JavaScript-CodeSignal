@@ -11,32 +11,39 @@
 // st: "abc"       Res: "abcba"
 
 // Parameters
-const param = "abcdedcb"
+const param = "aaaaba"
 
 // My Solution
 function solution(st) {
-    if (st == st.split('').reverse().join('')) {
-        return st;
-    }
-    else {
-        bPal = true
-        iStart = 0
-        while (bPal) {
-            iStart += 1
-            sTmp = st.substr(iStart, st.length - iStart)
-            console.log(`Stmp = ${sTmp}`)
-            if (iStart == st.length - 1) {
-                bPal = false
-            }
+    sOrig = st
+    let notPal = true;
+    let aRestore = [];
+    let aSt = st.split('');
+    
+    while(notPal && st.length > 1){
+        if(st == st.split('').reverse().join('')){
+            notPal = false;
         }
-        return 1;
+        else{
+            aRestore.unshift(aSt.shift());
+            st = aSt.join('')
+        }
     }
-
+    return sOrig + aRestore.join('')
 }
 
 // Best solution:
 function bestSolution(st) {
-    return 1;
+    function isPalindrome(string) {
+        return string == Array.from(string).reverse().join('')
+    }
+
+    if (isPalindrome(st))  return st;
+    for (var i = 0; i < st.length; i++) {
+        if (isPalindrome(st.slice(i, st.length))) {
+            return st + Array.from(st.slice(0, i)).reverse().join('');
+        }
+    }
 }
 
 // console log
