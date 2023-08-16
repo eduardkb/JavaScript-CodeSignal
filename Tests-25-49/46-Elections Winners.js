@@ -23,16 +23,22 @@
 // votes: [5, 1, 3, 4, 1] k: 0 --> return 1
 // votes: [1, 3, 3, 1, 1] k: 0  --> return 0
 // votes: [1, 1, 1, 1] k: 0  --> return 0
+// votes: [3, 1, 1, 3, 1] k: 2 -- return 2
 
 // Parameters
 const p1 = [2, 3, 5, 2];
 const p2 = 3;
 
-
-
 // My Solution
 function solution(votes, k) {
-    return 1;
+    iWinner = 0
+    votes.forEach((element,i) => {
+        aTemp = [...votes];
+        aTemp.splice(i, 1)
+        let iMaxVote = Math.max(...aTemp)
+        element+k > iMaxVote ? iWinner++ : null;
+    });
+    return iWinner;    
 }
 
 // Best solution:

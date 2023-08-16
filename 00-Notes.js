@@ -1,3 +1,5 @@
+
+
 /////////////////////////////////////////////////
 // Arrays inserting and removing elements
 function fArrManip() {
@@ -31,7 +33,6 @@ function fArrManip() {
 // array functions
 function fArrOthers() {
     let a = [6, 3, 23, 12, 15, 8, 11, 86, 7]
-    let a2 = [6, 24, 12, 8, 18, 86, 2]
     let aStr = ["Charlie", "bob", "4z89hi","Ulrique", "adam", "Yolanda", "dante", "2xy3zac", "Mary", "otavio"]
 
     console.log("Original array: ", a)
