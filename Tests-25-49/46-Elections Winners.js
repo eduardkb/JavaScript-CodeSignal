@@ -31,19 +31,32 @@ const p2 = 3;
 
 // My Solution
 function solution(votes, k) {
-    iWinner = 0
-    votes.forEach((element,i) => {
-        aTemp = [...votes];
-        aTemp.splice(i, 1)
-        let iMaxVote = Math.max(...aTemp)
-        element+k > iMaxVote ? iWinner++ : null;
-    });
-    return iWinner;    
+    // Working but slow
+    let iWinner = 0
+    for(let i = 0; i < votes.length; i++){
+        let iCurr = votes[i];
+        votes[i] -= votes[i];
+        iCurr+k > Math.max(...votes) ? iWinner++ : null;
+        votes[i]=iCurr;
+    };
+    return iWinner;
+    
+    // ORIGINAL (Working slow)
+    // iWinner = 0
+    // votes.forEach((element,i) => {
+    //     aTemp = [...votes];
+    //     aTemp.splice(i, 1)
+    //     let iMaxVote = Math.max(...aTemp)
+    //     element+k > iMaxVote ? iWinner++ : null;
+    // });
+    // return iWinner; 
 }
 
 // Best solution:
 function bestSolution(votes, k) {
-    return 1;
+    var max=Math.max(...votes)
+    var r=votes.filter(x=>x+k>max||x===max).length
+    return k?r:r==1?1:0
 }
 
 // console log
