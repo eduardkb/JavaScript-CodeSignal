@@ -17,12 +17,15 @@
 // "FF-FF-AB-CD-EA-BC"  true
 
 // Parameters
-const param = 0
+const param = "02-03-04-05-06-0A"
 
 // My Solution
 function solution(inputString) {
-    return 1;
-}
+
+    
+    // with regex
+    // return((new RegExp(/^([A-F0-9][A-F0-9]\-){5}([A-F0-9][A-F0-9])$/,'g')).test(inputString))
+}   
 
 // Best solution:
 function bestSolution(inputString) {
