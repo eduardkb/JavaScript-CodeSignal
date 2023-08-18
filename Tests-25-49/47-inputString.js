@@ -23,7 +23,7 @@ const param = "02-03-04-05-06-0A"
 function solution(inputString) {
 
     
-    // with regex
+    // solution with regex
     // return((new RegExp(/^([A-F0-9][A-F0-9]\-){5}([A-F0-9][A-F0-9])$/,'g')).test(inputString))
 }   
 

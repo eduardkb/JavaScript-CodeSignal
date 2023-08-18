@@ -24,18 +24,10 @@ let param = [2, 4, 7, 10, 33, 34, 35, 36, 37, 38, 39]
 function solution(a) {
     aRes = []
     aRes = a.map((eMap) => {
-        console.log("------------------------------------")
         return a.reduce((acc, eRed, i) => {
-            console.log(`${i} - ${acc} | ${eMap} | ${eRed}`)
             return acc + Math.abs(eRed - eMap)
         }, 0)
-        // let iCnt = 0
-        // for (let i = 0; i < a.length; i++) {
-        //     iCnt += Math.abs(a[i] - e)
-        // }
-        // return iCnt
     })
-    console.log(aRes)
     return a[aRes.indexOf(Math.min(...aRes))]
 }
 
