@@ -17,19 +17,52 @@
 // "FF-FF-AB-CD-EA-BC"  true
 
 // Parameters
-const param = "02-03-04-05-06-0A"
+const param = "C2-03-BB-05-06-0A"
 
 // My Solution
 function solution(inputString) {
+    // SOLUTION SIMPLIFIED
+    let bRet = true;
+    let sChar = "0123456789ABCDEF"
+    inputString.length != 17 && (bRet = false);
+    for(let i=inputString.length-1; i >= 0; i--){
+        (((i+1)%3==0) && (inputString[i]!="-")) && (bRet=false);
+        (((i+1)%3!=0) && (! sChar.includes(inputString[i]))) && (bRet=false);
+    }
+    return bRet
 
+    // SOLUTION FULL
+    // if(inputString.length != 17){
+    //     return false
+    // }
+    // let sChar = "0123456789ABCDEF"
     
+    // for(let i=inputString.length-1; i > 0; i--){
+    //     if((i+1)%3==0){
+    //         if(inputString[i]!="-"){
+    //             return false
+    //         }
+    //     }
+    //     else{
+    //         if(! sChar.includes(inputString[i])){
+    //             return false
+    //         }
+    //     }
+    // }
+    // return true
+
+    // SOLUTION 2 
     // solution with regex
     // return((new RegExp(/^([A-F0-9][A-F0-9]\-){5}([A-F0-9][A-F0-9])$/,'g')).test(inputString))
 }   
 
 // Best solution:
 function bestSolution(inputString) {
-    return 1;
+    // BEST SOLUTION WITHOUT REGEX
+    let l = inputString.split("-")
+    if (l.length!=6) {return false}
+    for (i of l) {if (i.length!=2||isNaN(parseInt(i,16))||isNaN(parseInt(i[1],16))) {return false}}
+    return true
 }
 
 // console log
