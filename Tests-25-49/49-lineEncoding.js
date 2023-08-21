@@ -17,16 +17,52 @@
 // s: "bbjaadlkjdl" Expected return value "2bj2adlkjdl"
  
 // Parameters
-const param = 0
+const param = "aabbbc"
 
 // My Solution
 function solution(s) {
-    return 1;
+    let sLast = "";
+    let sTmp = "";
+    let iCnt = 0;
+    let aRes = [];
+    s.split('').forEach(e => {
+        if(e != sLast){
+            if(iCnt>1){
+                sTmp = aRes.pop();
+                aRes.push(iCnt.toString());
+                aRes.push(sTmp);
+            }
+            iCnt=1;
+            aRes.push(e);
+        }
+        else{
+            iCnt+=1;
+        }
+        sLast=e;
+    });
+    if(iCnt>1){
+        sTmp = aRes.pop();
+        aRes.push(iCnt.toString());
+        aRes.push(sTmp);
+    }
+    return aRes.join('');
 }
 
 // Best solution:
 function bestSolution(s) {
-    return 1;
+  let count = 1;
+  let ans = '';
+  
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === s[i + 1]) {
+      count++;
+    } else {
+      if (count > 1) ans += count + s[i];
+      else ans += s[i];
+      count = 1;
+    }
+  }
+  return ans;
 }
 
 // console log
