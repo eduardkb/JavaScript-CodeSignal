@@ -10,16 +10,23 @@
 // solution(time) = false.
 
 // Parameters
-const param = "02:76"
+const param = "25:51"
 
 // My Solution
 function solution(time) {
-    return 1;
+    aTime = time.split(":");
+    if (parseInt(aTime[0]) < 0 || parseInt(aTime[0]) > 23) {
+        return false
+    }
+    if (parseInt(aTime[1]) < 0 || parseInt(aTime[1]) > 59) {
+        return false
+    }
+    return true;
 }
 
 // Best solution:
 function bestSolution(time) {
-    return 1;
+    return time.split(":")[0] < 24 && time.split(":")[1] < 60
 }
 
 // console log
