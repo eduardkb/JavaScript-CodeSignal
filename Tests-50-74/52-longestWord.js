@@ -9,17 +9,21 @@
 // text: "You are the best!!!!!!!!!!!! CodeFighter ever!" Expected return value "CodeFighter"
 
 // Parameters
-const param = "Ready, steady, go!"
+const param = "ab-CDE-fg_hi"
 
 // My Solution
 function solution(text) {
-    let sRes = text.replaceAll(/[d]/g,"")
-    return sRes;
+    text = text.replaceAll(/[^a-zA-Z\s]/g, " ").split(' ')
+    let aLen = text.map(e => e.length)
+    return (text[aLen.join('').search(Math.max(...aLen))])
 }
 
 // Best solution:
 function bestSolution(text) {
-    return 1;
+    let patt = /[^a-z^A-Z]/
+    text = text.split(patt);
+    let longest = text.reduce(function (a, b) { return a.length > b.length ? a : b; });
+    return longest
 }
 
 // console log
