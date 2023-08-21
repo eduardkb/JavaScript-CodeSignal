@@ -12,16 +12,17 @@
 // be solution(inputString) = 14.
 
 // Parameters
-const param = 0
+const param = "2+15+8a"
 
 // My Solution
 function solution(inputString) {
-    return 1;
+    let aNum = inputString.split(/[^\d]/).filter(Boolean);
+    return aNum.reduce((a, b) => parseInt(a) + parseInt(b), 0)
 }
 
 // Best solution:
 function bestSolution(inputString) {
-    return 1;
+    return (inputString.match(/\d+/g) || []).reduce((a, b) => a + +b, 0)
 }
 
 // console log
