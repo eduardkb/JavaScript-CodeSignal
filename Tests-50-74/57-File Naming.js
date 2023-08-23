@@ -24,16 +24,37 @@
 // names[4] = "doc", update names[4] = "doc(2)"
 
 // Parameters
-const param = 0
+const param = ["doc", "doc", "image", "doc(1)", "doc"]
 
 // My Solution
 function solution(names) {
-    return 1;
+    let aRes = [];
+    names.forEach(e => {
+        if (aRes.filter(a => a == e).length > 0) {
+            let i = 1;
+            while (aRes.filter(a => a == `${e}(${i})`).length > 0) {
+                i++
+            }
+            aRes.push(`${e}(${i})`)
+        }
+        else {
+            aRes.push(e)
+        }
+    })
+    return aRes;
 }
 
 // Best solution:
 function bestSolution(names) {
-    return 1;
+    const used = {};
+    return names.map(name => {
+        let newName = name;
+        while (used[newName]) {
+            newName = `${name}(${used[name]++})`;
+        }
+        used[newName] = 1;
+        return newName;
+    });
 }
 
 // console log
