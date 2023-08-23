@@ -19,16 +19,27 @@
 // Other letters can be obtained in the same manner.
 
 // Parameters
-const param = 0
+const param = "010001000110100101100101001000000111011101101001011101000110100000100000011011010110010101101101011011110111001001101001011001010111001100101100001000000110111001101111011101000010000001100100011100100110010101100001011011010111001100101110"
 
 // My Solution
 function solution(code) {
-    return 1;
+    code = code.match(/\d{8}/g)
+    return code.map(e => {
+        let iNum = 0,
+            iPow = 1;
+        for (i = 7; i >= 0; i--) {
+            (e[i] == '1') && (iNum += iPow);
+            iPow *= 2;
+        }
+        return String.fromCharCode(iNum)
+        // using parseInt function (convert byte to decimal)
+        // return String.fromCharCode(parseInt(e, 2))
+    }).join('');
 }
 
 // Best solution:
 function bestSolution(code) {
-    return 1;
+    return code.match(/.{8}/g).reduce((a, b) => a + String.fromCharCode(parseInt(b, 2)), "")
 }
 
 // console log
