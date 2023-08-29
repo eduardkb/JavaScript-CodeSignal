@@ -12,17 +12,17 @@
 // Each child will eat 3 pieces. So the answer is 9.
 
 // Parameters
-const p1 = 3
-const p2 = 10
+const p1 = 3 // 10
+const p2 = 11 // 5
 
 // My Solution
 function solution(n, m) {
-    return 1;
+    return Math.floor(m / n) * n;
 }
 
 // Best solution:
 function bestSolution(n, m) {
-    return 1;
+    return m - m % n;
 }
 
 // console log
