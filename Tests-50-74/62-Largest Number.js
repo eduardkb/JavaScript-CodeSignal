@@ -6,16 +6,20 @@
 // solution(n) = 99.
 
 // Parameters
-const param = 0
+const param = 2
 
 // My Solution
 function solution(n) {
-    return 1;
+    let sRes = '';
+    for (let i = 0; i < n; i++) {
+        sRes += '9';
+    }
+    return parseInt(sRes);
 }
 
 // Best solution:
 function bestSolution(n) {
-    return 1;
+    return Math.pow(10, n) - 1
 }
 
 // console log
