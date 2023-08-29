@@ -10,12 +10,14 @@ const param = 29
 
 // My Solution
 function solution(n) {
-    return 1;
+    return Math.floor(n / 10) + n % 10;
+    // OR
+    // return parseInt(n.toString()[0]) + parseInt(n.toString()[1])
 }
 
 // Best solution:
 function bestSolution(n) {
-    return 1;
+    return n % 10 + Math.floor(n / 10)
 }
 
 // console log
