@@ -33,7 +33,7 @@ function fArrManip() {
 // array functions
 function fArrOthers() {
     let a = [6, 3, 23, 12, 15, 8, 11, 86, 7]
-    let aStr = ["Charlie", "bob", "4z89hi","Ulrique", "adam", "Yolanda", "dante", "2xy3zac", "Mary", "otavio"]
+    let aStr = ["Charlie", "bob", "4z89hi", "Ulrique", "adam", "Yolanda", "dante", "2xy3zac", "Mary", "otavio"]
 
     console.log("Original array: ", a)
 
@@ -43,12 +43,12 @@ function fArrOthers() {
     console.log("Sort function with INTEGERS: ", sorted)
 
     // SORT STRINGS
-    
+
     // locale sort (normal sort)
-    console.log("Sort String LOCALE:", aStr.sort((a,b) => a.localeCompare(b)))
+    console.log("Sort String LOCALE:", aStr.sort((a, b) => a.localeCompare(b)))
 
     // sort ASCII (upper case before lower case)
-    console.log("Sort String ASCII:", aStr.sort((a,b) => a > b ? 1 : b > a ? -1 : 0))
+    console.log("Sort String ASCII:", aStr.sort((a, b) => a > b ? 1 : b > a ? -1 : 0))
 
     // FILTER
     console.log("".padEnd(30, "="))
@@ -91,7 +91,6 @@ function fArrOthers() {
     let bHasOnlyEvenNum = a.every((e) => e % 2 == 0)
     console.log("Even function to chek: array has only even numbers: ", bHasOnlyEvenNum)
 }
-fArrOthers();
 
 /////////////////////////////////////////////////
 // string functions

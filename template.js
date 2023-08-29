@@ -1,5 +1,5 @@
 // Test description:
-// xxxxxx
+// xxxx
 
 // Parameters
 const param = 0
